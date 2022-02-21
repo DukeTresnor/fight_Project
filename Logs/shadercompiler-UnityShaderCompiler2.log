@@ -2,3 +2,5 @@ Base path: '/Users/bradfordarmstrong/Projects/unity/2020.3.19f1/Unity.app/Conten
 Cmd: initializeCompiler
 
 Cmd: shutdown
+
+Quitting shader compiler process
