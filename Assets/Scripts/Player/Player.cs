@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         // Read and store the Vector2 value from the Movement action
         _moveInput = _playerInputActions.Player_Map.Movement.ReadValue<Vector2>();
         // Setting Y axis to 0 (temporary fix)
-        _moveInput.y = 0f;
+        //_moveInput.y = 0f;
         // Setting velocity of RigidBody2D -- input value * speed
         _rbody.velocity = _moveInput * _speed;
 
@@ -146,6 +146,7 @@ public class Player : MonoBehaviour
 
 
     // This is called each time the player performs the Jump action. Shouldn't this be called "OnJump"?
+    //   No -- this is the jump comamnd function -- it is more similar to Jump()
     private void Jump_performed(InputAction.CallbackContext context)
     {
         // Check if the player is grounded
@@ -155,6 +156,7 @@ public class Player : MonoBehaviour
             _rbody.velocity += Vector2.up * _jumpPower;
             _jumping = true;
             StartCoroutine(EnableGroundCheckAfterJump());
+            Debug.Log("Jump performed");
         }
     }
 
@@ -162,6 +164,8 @@ public class Player : MonoBehaviour
     //   Look to this method to implement hitbox collision scripts for moves?
     private bool IsGrounded()
     {
+
+
         // Calculate central coordinate of the level (ground) as the central coordinate of the collider, plus half the height of the collider, plus the half of the
         //   height from the level (ground). ??
         _boxCenter = new Vector2(_collider.bounds.center.x, _collider.bounds.center.y)
@@ -190,14 +194,17 @@ public class Player : MonoBehaviour
         if(_groundCheckEnabled && IsGrounded())
         {
             _jumping = false;
+            Debug.Log("I'm not jumping");
         }
         else if(_jumping && (_rbody.velocity.y < 0f) )        // Jump Fall  -- error here -- comparing rigidbody 2d and float
         {
             _rbody.gravityScale = _initialGravityScale * _jumpFallGravityMultiplier;
+            Debug.Log("I'm falling after jumping!");
         }
         else                                                  // Normal Fall
         {
             _rbody.gravityScale = _initialGravityScale;
+            Debug.Log("I'm just falling");
         }
     }
 
