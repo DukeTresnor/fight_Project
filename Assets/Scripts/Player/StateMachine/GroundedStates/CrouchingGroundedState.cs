@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrouchingGroundedState : GroundedState
 {
-    CrouchingGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData) : base(player, stateMachine, playerData)
+    public CrouchingGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData) : base(player, stateMachine, playerData)
     {
 
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
     #region Components
     public Animator anim;
     public InputHandler input {get; private set;}
-    public RigidBody rigidBody;
+    public Rigidbody rigidBody;
     // something for the box colliders? public BoxCollider boxCollider;
 
     #endregion
@@ -65,9 +66,10 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    public void printCurrentState();
+    public void printCurrentState()
     {
-        Debug.Log(StateMachine.CurrentState);
+        //Debug.Log(StateMachine.CurrentState);
+        print(StateMachine.CurrentState);
         // Maybe use print(Statemachine.CurrentState) ?
     }
 
@@ -76,7 +78,12 @@ public class Player : MonoBehaviour
 
     public void Walk()
     {
+        moveVec = input.rawMoveInput;
 
+        Vector3 inputVelocity = new Vector3(moveVec.x, 0, moveVec.y);
+        Vector3 moveVelocity = inputVelocity * playerData.walkSpeed;
+
+        rigidBody.AddForce(moveVelocity);
     }
 
     public void Dash()

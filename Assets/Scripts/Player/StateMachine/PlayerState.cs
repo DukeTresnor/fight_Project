@@ -10,7 +10,7 @@ public class PlayerState : MonoBehaviour
 
 
     // Constructor
-    public virtual void PlayerState(Player player, PlayerStateMachine stateMachine, PlayerData playerData)
+    public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerData playerData)
     {
         this.player = player;
         this.stateMachine = stateMachine;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundedState : PlayerState
 {
-    GroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData) : base(player, stateMachine, playerData)
+    public GroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData) : base(player, stateMachine, playerData)
     {
 
     }

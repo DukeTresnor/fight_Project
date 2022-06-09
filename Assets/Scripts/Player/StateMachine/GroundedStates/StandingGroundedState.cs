@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StandingGroundedState : GroundedState
 {
-    StandingGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData) : base(player, stateMachine, playerData)
+    public StandingGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData) : base(player, stateMachine, playerData)
     {
 
     }
@@ -27,6 +27,15 @@ public class StandingGroundedState : GroundedState
     {
         // Handles physics logic and calculations
         base.PhysicsUpdate();
+
+        if (player.input.movementInput)
+        {
+            player.Walk();
+            
+            // Play animation
+            Debug.Log("Walking");
+            //player.anim.SetBool("Walk", true);
+        }
     }
 
     public override void Exit()
