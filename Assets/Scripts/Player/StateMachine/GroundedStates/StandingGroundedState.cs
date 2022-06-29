@@ -13,6 +13,11 @@ public class StandingGroundedState : GroundedState
     public override void Enter()
     {
         base.Enter();
+
+        player.input.isGrounded = true;
+
+        // Exit other animations and play idel animation
+        Debug.Log("I'm Idle");
     }
 
     // No need for HandleInput(), since that will be handled in the InputHandler?
@@ -35,6 +40,13 @@ public class StandingGroundedState : GroundedState
             // Play animation
             Debug.Log("Walking");
             //player.anim.SetBool("Walk", true);
+        }
+        else if (!player.input.movementInput)
+        {
+            // player should stop moving
+            player.StopMoving();
+            Debug.Log("I stopped");
+
         }
     }
 

@@ -16,6 +16,8 @@ public class InputHandler : MonoBehaviour
 
 
 
+    public bool isGrounded = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +35,21 @@ public class InputHandler : MonoBehaviour
     {
         rawMoveInput = context.ReadValue<Vector2>();
 
+        Debug.Log("input handler Move was called");
+
         if (context.started)
         {
             movementInput = true;
+
+            Debug.Log("Context true");
+            Debug.Log(movementInput);
         }
 
         if (context.canceled)
         {
             movementInput = false;
+
+            Debug.Log("Context false");
         }
     }
 

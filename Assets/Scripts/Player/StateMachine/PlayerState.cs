@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerState : MonoBehaviour
+public class PlayerState
 {
     protected Player player;                                         // instance of the player object
     protected PlayerStateMachine stateMachine;                       // instance of the player state machine

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateMachine : MonoBehaviour
+public class PlayerStateMachine
 {
     // Neds to store the current state as a var
     // handles entering and exiting a state -- contains initilize and change state methods

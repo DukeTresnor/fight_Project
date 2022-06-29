@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     #region Components
     public Animator anim;
     public InputHandler input {get; private set;}
-    public Rigidbody rigidBody;
+    public Rigidbody2D rigidBody;
     // something for the box colliders? public BoxCollider boxCollider;
 
     #endregion
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
     #region Unity Callback Functions
 
-    // Player instance vars get state
+    // Player instance vars get state -- should initilize each of your action states
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         input = GetComponent<InputHandler>();
+        playerData = GetComponent<PlayerData>();
+        rigidBody = GetComponent<Rigidbody2D>();
         StateMachine.Initilize(StandingGroundState);
     }
 
@@ -68,8 +70,8 @@ public class Player : MonoBehaviour
 
     public void printCurrentState()
     {
-        //Debug.Log(StateMachine.CurrentState);
-        print(StateMachine.CurrentState);
+        Debug.Log(StateMachine.CurrentState);
+        //print(StateMachine.CurrentState);
         // Maybe use print(Statemachine.CurrentState) ?
     }
 
@@ -79,11 +81,19 @@ public class Player : MonoBehaviour
     public void Walk()
     {
         moveVec = input.rawMoveInput;
-
         Vector3 inputVelocity = new Vector3(moveVec.x, 0, moveVec.y);
         Vector3 moveVelocity = inputVelocity * playerData.walkSpeed;
-
         rigidBody.AddForce(moveVelocity);
+    }
+
+    public void StopMoving()
+    {
+        rigidBody.velocity = Vector3.zero;
+    }
+
+    public void Crouch()
+    {
+
     }
 
     public void Dash()
