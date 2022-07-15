@@ -27,6 +27,13 @@ public class InAirState : PlayerState
     {
         // Handles physics logic and calculations
         base.PhysicsUpdate();
+
+        // If we're jumping, go here
+        //if (player.input.isJumping)
+        //{
+        //    Debug.Log("I'm in the air");
+        //}
+        
     }
 
     public override void Exit()

@@ -27,6 +27,15 @@ public class GroundedState : PlayerState
     {
         // Handles physics logic and calculations
         base.PhysicsUpdate();
+
+        //if (player.input.jumpInput)
+        //{
+        //    player.Jump();
+        //    // Play animation
+        //    Debug.Log("Jumping");
+        //    //player.anim.SetBool("Jump", true);
+        //}
+
     }
 
     public override void Exit()

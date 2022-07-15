@@ -18,6 +18,24 @@ public class StandingGroundedState : GroundedState
 
         // Exit other animations and play idel animation
         Debug.Log("I'm Idle");
+
+        /*
+        Consider for here -- from Fuckaroundadillo ///
+        player.SphereCol.material = playerData.uprightMaterial;
+
+        player.Input.isGrounded = true;
+        player.Input.UseGlideInput();
+
+        player.Anim.SetBool("Jump", false);
+        player.Anim.SetBool("Glide", false);
+        player.Anim.SetBool("Hangtime", false);
+
+        player.Anim.Play("Upright Idle");
+
+        end of consideration ///
+        */
+
+
     }
 
     // No need for HandleInput(), since that will be handled in the InputHandler?
@@ -38,16 +56,26 @@ public class StandingGroundedState : GroundedState
             player.Walk();
             
             // Play animation
-            Debug.Log("Walking");
+            //Debug.Log("Walking");
             //player.anim.SetBool("Walk", true);
         }
         else if (!player.input.movementInput)
         {
             // player should stop moving
             player.StopMoving();
-            Debug.Log("I stopped");
+            //Debug.Log("I stopped");
 
         }
+
+        if (player.input.jumpInput)
+        {
+            player.Jump();
+            // Play animation
+            Debug.Log("Jumping");
+            //player.anim.SetBool("Jump", true);
+        }
+
+        
     }
 
     public override void Exit()

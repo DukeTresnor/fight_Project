@@ -13,10 +13,12 @@ public class InputHandler : MonoBehaviour
 
     // Bools
     public bool movementInput {get; private set;}
+    public bool jumpInput {get; private set;}
 
 
 
     public bool isGrounded = false;
+    public bool isJumping = false;
 
 
     // Start is called before the first frame update
@@ -52,5 +54,28 @@ public class InputHandler : MonoBehaviour
             Debug.Log("Context false");
         }
     }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            jumpInput = true;
+            //JumpInputStop = false;
+            //jumpInputStartTime = Time.time;
+
+            Debug.Log("space bar was pressed");
+
+        }
+
+
+        if (context.canceled)
+        {
+            isJumping = false;
+            jumpInput = false;
+            //JumpInputStop = true;
+            Debug.Log("Let go of space bar");
+        }
+    }
+    public void UseJumpInput() => jumpInput = false;
 
 }

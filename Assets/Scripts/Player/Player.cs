@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     // Have input get input handler component, initialize state machine
     private void Start()
     {
-        input = GetComponent<InputHandler>();
+        input = GetComponent<InputHandler>();           // Get components of the inputhandler
         playerData = GetComponent<PlayerData>();
         rigidBody = GetComponent<Rigidbody2D>();
         StateMachine.Initilize(StandingGroundState);
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    public void printCurrentState()
+    public void PrintCurrentState()
     {
         Debug.Log(StateMachine.CurrentState);
         //print(StateMachine.CurrentState);
@@ -103,8 +103,13 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
+
         // come back after fleshing out input handler
-        //input.isJumping = true;
+        input.isJumping = true;
+
+        Vector3 jumpVelocity = Vector3.up * playerData.jumpForce;
+
+        rigidBody.AddForce(jumpVelocity);
     }
 
     #endregion

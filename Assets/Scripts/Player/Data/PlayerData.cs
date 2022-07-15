@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
 
-    public float walkSpeed = 50.0f;
+    public float walkSpeed = 10.0f;
+    public float jumpForce = 10.0f;
 
 
     // Start is called before the first frame update

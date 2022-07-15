@@ -28,6 +28,7 @@ public class PlayerState
     public virtual void LogicUpdate()
     {
         // Handles core logic
+        player.PrintCurrentState();
     }
 
     public virtual void PhysicsUpdate()
