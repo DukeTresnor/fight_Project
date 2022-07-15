@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class TestingInputSystem : MonoBehaviour
+public class PlayerData : MonoBehaviour
 {
-    
-    public void Jump() {
-        Debug.Log("Jump");
-        
-    }
-    
+
+    public float walkSpeed = 10.0f;
+    public float jumpForce = 10.0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
