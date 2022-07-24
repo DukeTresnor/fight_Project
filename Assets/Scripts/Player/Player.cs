@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
     #region Unity Callback Functions
 
-    // Player instance vars get state -- should initilize each of your action states
+    // Player instance vars get state -- should initilize each of your action states -- make sure to add your new states!
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
@@ -114,6 +114,15 @@ public class Player : MonoBehaviour
 
     #endregion
 
+
+    #region Check Functions
+
+    //public bool CheckIfGrounded()
+    //{
+
+    //}
+
+    #endregion
 
 
 

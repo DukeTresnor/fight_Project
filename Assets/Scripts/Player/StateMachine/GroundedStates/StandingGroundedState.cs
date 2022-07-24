@@ -59,11 +59,13 @@ public class StandingGroundedState : GroundedState
             //Debug.Log("Walking");
             //player.anim.SetBool("Walk", true);
         }
-        else if (!player.input.movementInput)
+        else if (!player.input.movementInput && !player.input.isJumping)
         {
             // player should stop moving
             player.StopMoving();
             //Debug.Log("I stopped");
+
+            // player.anim.SetBool("Idle", true);
 
         }
 
@@ -73,6 +75,8 @@ public class StandingGroundedState : GroundedState
             // Play animation
             Debug.Log("Jumping");
             //player.anim.SetBool("Jump", true);
+
+            stateMachine.ChangeState(player.AirState);
         }
 
         

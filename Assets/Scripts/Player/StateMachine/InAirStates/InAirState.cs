@@ -40,5 +40,6 @@ public class InAirState : PlayerState
     {
         base.Exit();
     }
+    
 
 }

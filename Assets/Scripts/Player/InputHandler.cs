@@ -15,6 +15,7 @@ public class InputHandler : MonoBehaviour
     public bool movementInput {get; private set;}
     public bool jumpInput {get; private set;}
 
+    public bool jumpInputStop;
 
 
     public bool isGrounded = false;
@@ -60,7 +61,7 @@ public class InputHandler : MonoBehaviour
         if (context.started)
         {
             jumpInput = true;
-            //JumpInputStop = false;
+            jumpInputStop = false;
             //jumpInputStartTime = Time.time;
 
             Debug.Log("space bar was pressed");
@@ -72,7 +73,7 @@ public class InputHandler : MonoBehaviour
         {
             isJumping = false;
             jumpInput = false;
-            //JumpInputStop = true;
+            jumpInputStop = true;
             Debug.Log("Let go of space bar");
         }
     }
